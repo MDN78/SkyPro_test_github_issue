@@ -37,11 +37,25 @@ pm.collectionVariables.set(key, value);
 ### PATCH - for update issue
 - PATH: - `https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}`
 - Use a variables from previous step - script
+- Authorization: - `inherit auth from parent`
 - Body (example):
 ```
 {
     "title": "new title name"
 }
 ```
-
+### PUT - for locking certain issue
+- PATH: - `https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}/lock`
+- Use a variables from previous step - script
+- Authorization: - `inherit auth from parent`
+- Body (example):
+```
+{
+    "lock_reason": "off-topic"
+}
+```
+### GET locked issue
+- PATH: - `https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}`
+- Use a variables from previous step - script
+- Authorization: - `inherit auth from parent`
 
