@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "283ae89d-b311-4cf5-9f93-fff43794e984",
+		"name": "Git_issue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26007787",
+		"_collection_link": "https://www.postman.com/mdn78/workspace/git-issue-testing/collection/26007787-283ae89d-b311-4cf5-9f93-fff43794e984?action=share&source=collection_link&creator=26007787"
+	},
+	"item": [
+		{
+			"name": "Get_issues_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_new_issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"issue_number\"\r",
+							"var value = pm.response.json().number\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"issue_1\",\r\n    \"body\": \"Something went wrong\",\r\n    \"assignee\": \"MDN78\",\r\n    \"labels\": [\r\n        \"bug\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_updated_list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reneme_current_issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"issue_2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues/{{issue_number}}",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues",
+						"{{issue_number}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_updated_list_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lock_current_issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lock_reason\": \"off-topic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues/{{issue_number}}/lock",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues",
+						"{{issue_number}}",
+						"lock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_locked_issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MainUrl}}/MDN78/SkyPro_test_github_issue/issues/{{issue_number}}",
+					"host": [
+						"{{MainUrl}}"
+					],
+					"path": [
+						"MDN78",
+						"SkyPro_test_github_issue",
+						"issues",
+						"{{issue_number}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "MainUrl",
+			"value": "https://api.github.com/repos",
+			"type": "string"
+		},
+		{
+			"key": "issue_number",
+			"value": ""
+		}
+	]
+}
