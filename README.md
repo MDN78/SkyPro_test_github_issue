@@ -1,8 +1,8 @@
-# How to work with GitHub issue vs Postman:
+# How to work: GitHub issue vs Postman:
 ## Step 1 - generate new token
 1) Create API token i-n your Githup profile </br> `Settings -> Deleloper settings -> Personal access token -> Token classics`
 2) Turn button</br> `Generate new token `
-3) Take a name of key, Assigne permissions
+3) Take a name of key, Assign permissions
 4) Press button `Generate token`
 ## Step 2 - Postman
 1) Create new Postman collection
@@ -16,10 +16,10 @@
 ### POST for creating new issue
 - PATH: - `https://api.github.com/repos/{owner}/{repo}/issues`
 - Authorization: - `inherit auth from parent`
-- Body:</br> 
+- Body:
 ```
 {
-    "title": "ussue_1",
+    "title": "issue_1",
     "body": "Something went wrong",
     "assignee": "MDN78",
     "labels": [
@@ -36,6 +36,7 @@ pm.collectionVariables.set(key, value);
 ```
 ### PATCH - for update issue
 - PATH: - `https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}`
+- Use a variables from previous step - script
 - Body (example):
 ```
 {
