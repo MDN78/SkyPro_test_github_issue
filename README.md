@@ -9,4 +9,6 @@
 2) Select `Authorization -> Type -> Bearer Token `
 3) Input your token from Github and save changes
 ## Step 2 - Methods
+General GitHub REST API docs</br> https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#about-issues
 ### GET 
+- 
