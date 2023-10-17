@@ -59,3 +59,13 @@ pm.collectionVariables.set(key, value);
 - Use a variables from previous step - script
 - Authorization: - `inherit auth from parent`
 
+### DELETE issue
+- PATH - `https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}`
+- - Authorization: - `inherit auth from parent`
+- body:
+```
+{
+    "state": "close"
+}
+```
+
